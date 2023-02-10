@@ -19,7 +19,7 @@ export default function LoveU() {
   const [showModal, setShowModal] = useState(false);
 
   const onTryDenail = () => {
-    let col = Math.ceil(Math.random() * 10);
+    let col = Math.ceil(Math.random() * 9);
     let row = Math.ceil(Math.random() * 6);
 
     if (
