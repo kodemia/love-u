@@ -91,8 +91,9 @@ export default function LoveU() {
             "border-[3px] border-red-500 rounded-2xl",
             "text-red-500 font-bold text-2xl",
             "cursor-pointer",
-            "row-start-4 col-start-8",
-            `row-start-${coord[1]} col-start-${coord[0]}`,
+            tries == 0
+              ? "row-start-4 col-start-8"
+              : `row-start-${coord[1]} col-start-${coord[0]}`,
             "z-10",
             "transition-all duration-100"
           )}
