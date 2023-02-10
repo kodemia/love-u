@@ -31,7 +31,6 @@ export default function LoveU() {
       row += 1;
     }
 
-    console.log({ col, row });
     setCoord([col, row]);
     setTries(tries + 1);
   };
