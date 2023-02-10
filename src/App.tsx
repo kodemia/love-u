@@ -20,7 +20,7 @@ export default function LoveU() {
 
   const onTryDenail = () => {
     let col = Math.ceil(Math.random() * 9);
-    let row = Math.ceil(Math.random() * 6);
+    let row = Math.ceil(Math.random() * 5);
 
     if (
       row == 3 ||
