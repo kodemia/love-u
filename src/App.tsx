@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 import Modal from "./CelebrationModal";
 
+const COLS = 4;
+const ROWS = 4;
+
 const images = [
   "./cat-please.gif",
   "./gato-con-botas.gif",
@@ -11,24 +14,26 @@ const images = [
   "./come-on.gif",
 ];
 
+const getRandomCoords = () => {
+  let col = Math.ceil(Math.random() * COLS);
+  let row = Math.ceil(Math.random() * ROWS);
+  return { col, row };
+};
+
 export default function LoveU() {
-  const [coord, setCoord] = useState([8, 4]);
+  const [coord, setCoord] = useState([5, 3]);
   const [tries, setTries] = useState(0);
   const [showImage, setShowImage] = useState(false);
   const [image, setImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
   const onTryDenail = () => {
-    let col = Math.ceil(Math.random() * 9);
-    let row = Math.ceil(Math.random() * 5);
+    let { col, row } = getRandomCoords();
 
-    if (
-      row == 3 ||
-      (col == 4 && row == 5) ||
-      (col == coord[0] && row == coord[1])
-    ) {
-      col += 1;
-      row += 1;
+    while (col == coord[0] || row == coord[1] || row == 2) {
+      const newCoords = getRandomCoords();
+      col = newCoords.col;
+      row = newCoords.row;
     }
 
     setCoord([col, row]);
@@ -54,14 +59,14 @@ export default function LoveU() {
         className={clsx(
           "bg-black",
           "h-screen w-screen",
-          "grid grid-cols-12 grid-rows-6",
+          "grid grid-cols-4 grid-rows-4",
           "p-5"
         )}
       >
         <h1
           className={clsx(
-            "row-start-3 col-start-1 col-end-13",
-            "text-8xl text-center font-extrabold",
+            "row-start-2 col-start-1 col-end-5",
+            "text-5xl md:text-8xl text-center font-extrabold",
             "flex justify-center items-center",
             "bg-gradient-to-tr from-red-600 via-fuchsia-500 to-rose-500",
             "animate-gradient-y",
@@ -72,11 +77,11 @@ export default function LoveU() {
         </h1>
         <div
           className={clsx(
-            "h-20 my-auto",
+            "h-20 my-auto mx-2 md:mx-4",
             "flex justify-center items-center",
             "border-[3px] border-purple-500 rounded-2xl",
             "text-purple-500 font-bold text-2xl",
-            "row-start-4 col-start-5",
+            "row-start-3 col-start-2",
             "cursor-pointer"
           )}
           onClick={() => setShowModal(true)}
@@ -85,13 +90,13 @@ export default function LoveU() {
         </div>
         <div
           className={clsx(
-            "h-20 my-auto",
+            "h-20 my-auto mx-2 md:mx-4",
             "flex justify-center items-center",
             "border-[3px] border-red-500 rounded-2xl",
             "text-red-500 font-bold text-2xl",
             "cursor-pointer",
             tries == 0
-              ? "row-start-4 col-start-8"
+              ? "row-start-3 col-start-3"
               : `row-start-${coord[1]} col-start-${coord[0]}`,
             "z-10",
             "transition-all duration-100"
@@ -104,7 +109,8 @@ export default function LoveU() {
         <div
           className={clsx(
             "flex justify-center",
-            "row-start-1 row-span-2 col-start-4 col-span-6"
+            "row-start-1 row-span-1 col-start-1 col-span-4",
+            "md:row-start-1 md:row-end-3 md:col-start-1 md:col-end-5"
           )}
         >
           <img
@@ -113,7 +119,8 @@ export default function LoveU() {
             className={clsx("rounded-3xl", { hidden: !showImage })}
           />
         </div>
-        <footer className="row-start-6 col-start-1 col-span-12 flex justify-center items-end text-white/10">
+
+        <footer className="row-start-4 col-start-1 col-span-12 flex justify-center items-end text-white/10">
           <a
             className="cursor-pointer"
             href="https://kodemia.mx"

@@ -21,13 +21,17 @@ export default function Modal() {
           "border-2 border-purple-600"
         )}
       >
-        <p className="text-4xl mb-10">🎉 Yo sabía que aceptarías 🎉</p>
+        <p className="text-2xl md:text-4xl mb-10 text-center">
+          🎉 Yo sabía que aceptarías 🎉
+        </p>
         <img
           src="./carlton.gif"
           alt="yeah dance"
           className={clsx("rounded-xl", "h-[20vh]", "mb-10")}
         />
-        <p className="text-2xl">🖤 ¡Feliz dia del amor y la amistad! 🖤</p>
+        <p className="text-lg md:text-2xl text-center">
+          🖤 ¡Feliz dia del amor y la amistad! 🖤
+        </p>
         <p
           className="mt-20 text-sm text-white/40 cursor-pointer"
           onClick={() => window.location.reload()}
