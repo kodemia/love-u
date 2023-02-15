@@ -6,7 +6,7 @@ Este proyecto esta realizado con vite, se necesita node para correrlo
 
 Como manejador de paquetes se uso pnpm pero se puede usar npm sin problema
 
-Para instalar usa el comnado
+Para instalar usa el comando
 
 ```
 npm install
